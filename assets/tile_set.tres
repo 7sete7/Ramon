@@ -1,0 +1,54 @@
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://b7rc21o4qmq3d"]
+
+[ext_resource type="Texture2D" uid="uid://8801k5xv2wko" path="res://assets/graybox.png" id="1_eslq1"]
+[ext_resource type="Texture2D" uid="uid://3h5qax6vcra6" path="res://assets/green.png" id="2_u6000"]
+[ext_resource type="Texture2D" uid="uid://bkb05iryew1wy" path="res://assets/red.png" id="3_u4lx5"]
+[ext_resource type="Texture2D" uid="uid://nw4uymw2aj7o" path="res://assets/yellow.png" id="4_cpn64"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_u6000"]
+tile_data = PackedInt32Array(65536, 4, 0, 131072, 4, 0, 196608, 4, 0, 1, 4, 0, 65537, 4, 0, 131073, 4, 0, 2, 4, 0, 65538, 4, 0, 131074, 4, 0, 196610, 4, 0, 65539, 4, 0, 131075, 4, 0, 196611, 4, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_u4lx5"]
+tile_data = PackedInt32Array(131072, 4, 0, 196608, 4, 0, 262144, 4, 0, 65537, 4, 0, 131073, 4, 0, 196609, 4, 0, 2, 4, 0, 65538, 4, 0, 131074, 4, 0, 196610, 4, 0, 262146, 4, 0, 3, 4, 0, 65539, 4, 0, 131075, 4, 0, 196611, 4, 0, 262147, 4, 0, 65540, 4, 0, 131076, 4, 0, 196612, 4, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_cpn64"]
+tile_data = PackedInt32Array(196608, 5, 0, 262144, 5, 0, 327680, 5, 0, 393216, 5, 0, 458752, 5, 0, 131073, 5, 0, 196609, 5, 0, 262145, 5, 0, 327681, 5, 0, 393217, 5, 0, 458753, 5, 0, 65538, 5, 0, 131074, 5, 0, 196610, 5, 0, 262146, 5, 0, 327682, 5, 0, 393218, 5, 0, 458754, 5, 0, 65539, 5, 0, 131075, 5, 0, 196611, 5, 0, 262147, 5, 0, 327683, 5, 0, 393219, 5, 0, 4, 5, 0, 65540, 5, 0, 131076, 5, 0, 196612, 5, 0, 262148, 5, 0, 327684, 5, 0, 131077, 5, 0, 196613, 5, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_7qmym"]
+tile_data = PackedInt32Array(262144, 5, 0, 327680, 5, 0, 65537, 5, 0, 131073, 5, 0, 196609, 5, 0, 327681, 5, 0, 2, 5, 0, 65538, 5, 0, 131074, 5, 0, 196610, 5, 0, 262146, 5, 0, 327682, 5, 0, 65539, 5, 0, 131075, 5, 0, 196611, 5, 0, 262147, 5, 0, 131076, 5, 0, 196612, 5, 0, 262148, 5, 0, 196613, 5, 0, 262149, 5, 0, 262150, 5, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_sryw2"]
+tile_data = PackedInt32Array(196608, 6, 0, 262144, 6, 0, 1, 6, 0, 65537, 6, 0, 262145, 6, 0, 327681, 6, 0, 2, 6, 0, 65538, 6, 0, 131074, 6, 0, 262146, 6, 0, 327682, 6, 0, 65539, 6, 0, 131075, 6, 0, 196611, 6, 0, 262147, 6, 0, 327683, 6, 0, 65540, 6, 0, 131076, 6, 0, 196612, 6, 0, 262148, 6, 0, 327684, 6, 0, 65541, 6, 0, 131077, 6, 0, 196613, 6, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_prmj7"]
+tile_data = PackedInt32Array(0, 6, 0, 65536, 6, 0, 131072, 6, 0, 196608, 6, 0, 1, 6, 0, 65537, 6, 0, 131073, 6, 0, 196609, 6, 0, 196610, 6, 0, 65539, 6, 0, 131075, 6, 0, 196611, 6, 0, 196612, 6, 0, 262148, 6, 0, 327684, 6, 0, 131077, 6, 0, 196613, 6, 0, 262149, 6, 0, 327685, 6, 0, 131078, 6, 0, 196614, 6, 0, 262150, 6, 0, 327686, 6, 0, 196615, 6, 0, 262151, 6, 0, 196616, 6, 0, 262152, 6, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ki5qi"]
+resource_name = "graybox"
+texture = ExtResource("1_eslq1")
+0:0/next_alternative_id = 4
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4n3o"]
+texture = ExtResource("2_u6000")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6000"]
+texture = ExtResource("3_u4lx5")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4lx5"]
+texture = ExtResource("4_cpn64")
+0:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_ki5qi")
+sources/4 = SubResource("TileSetAtlasSource_b4n3o")
+sources/5 = SubResource("TileSetAtlasSource_u6000")
+sources/6 = SubResource("TileSetAtlasSource_u4lx5")
+pattern_0 = SubResource("TileMapPattern_u6000")
+pattern_1 = SubResource("TileMapPattern_u4lx5")
+pattern_2 = SubResource("TileMapPattern_cpn64")
+pattern_3 = SubResource("TileMapPattern_7qmym")
+pattern_4 = SubResource("TileMapPattern_sryw2")
+pattern_5 = SubResource("TileMapPattern_prmj7")
