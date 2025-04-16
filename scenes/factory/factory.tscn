@@ -9,8 +9,6 @@
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("2_ciing")
-MAP_W = 3
-MAP_H = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Grid"]
 tile_set = ExtResource("1_drj7t")

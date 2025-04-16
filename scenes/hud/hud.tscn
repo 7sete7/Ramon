@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bttlr7ljxvsyy"]
+[gd_scene load_steps=4 format=3 uid="uid://bttlr7ljxvsyy"]
 
 [ext_resource type="Script" uid="uid://bt8p213hs6afa" path="res://scenes/hud/hud.gd" id="1_cgeww"]
 [ext_resource type="Script" uid="uid://cg2mb2378y7ph" path="res://scenes/hud/tile_info.gd" id="1_fmyca"]
+[ext_resource type="LabelSettings" uid="uid://c5x7kwny3d4g" path="res://assets/text/default_small.tres" id="2_c45xl"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -23,7 +24,8 @@ grow_vertical = 2
 
 [node name="TileInfo" type="Label" parent="PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
 text = "Boan tarden"
+label_settings = ExtResource("2_c45xl")
 script = ExtResource("1_fmyca")

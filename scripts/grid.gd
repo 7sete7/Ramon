@@ -18,6 +18,7 @@ enum TILES {
 }
 
 var GRID: Dictionary = {}
+signal tile_type_changed(new_type)
 
 func _ready() -> void:
 	tile_size = tile_map.tile_set.tile_size
@@ -34,16 +35,16 @@ func set_tile_at(pos: Vector2i, new_tile: TILES) -> void:
 		tile = Tile.new(tilemap_position, new_tile, self.tile_size)
 		GRID[tile.center_position] = tile
 	
-	GRID[tile.center_position].tile_id = new_tile
+	GRID[tile.center_position].tile_type = new_tile
 	tile_map.change_tile(pos, new_tile, true)
+	tile_type_changed.emit(new_tile)
 	
 func get_tile_at(pos: Vector2i) -> Tile:
-	if not is_in_grid(pos):
-		print(pos, " not in grid")
-		return null
+	if not is_in_grid(pos): return null
+
 	var nearest_center_pos: Vector2i = Vector2i(HALF_TILE + Vector2(pos / tile_size).floor() * Vector2(tile_size))
 	var tile: Tile = GRID.get(nearest_center_pos, null)
-	if not tile: print(pos, " => nearest_center_pos: ", nearest_center_pos)
+
 	return tile
 
 func init_tiles() -> void:
