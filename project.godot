@@ -15,6 +15,10 @@ run/main_scene="uid://bcobh33jbo5cn"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [debug]
 
 gdscript/warnings/unsafe_property_access=1
@@ -27,6 +31,14 @@ window/size/viewport_height=180
 window/size/window_width_override=2560
 window/size/window_height_override=1440
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

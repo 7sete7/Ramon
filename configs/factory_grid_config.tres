@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GridConfig" load_steps=2 format=3 uid="uid://cxb2oue8b4314"]
+
+[ext_resource type="Script" uid="uid://cqlqwj8ea2cs5" path="res://scripts/grid_config.gd" id="1_7s52m"]
+
+[resource]
+script = ExtResource("1_7s52m")
+map_width = 160
+map_height = 160
+map_ore_coverage = 25
+min_ore_per_clump = 8
+max_ore_per_clump = 35
+tile_width = 16
+tile_height = 16

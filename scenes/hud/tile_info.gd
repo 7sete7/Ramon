@@ -5,13 +5,16 @@ var process_timer := 0.0
 var process_interval := 0.1 # Process every 0.1 seconds (10 times per second)
 
 var current_tile: Tile
+var enabled = false
 
 func _ready() -> void:
-	hud.grid.tile_type_changed.connect(func(_value): self.update_label())
+	if hud and hud.grid:
+		hud.grid.tile_type_changed.connect(func(_value): self.update_label())
+		enabled = true
 
 func _process(delta: float) -> void:
 	process_timer += delta
-	if process_timer < process_interval:
+	if not enabled or process_timer < process_interval:
 		return
 	
 	process_timer = 0.0
