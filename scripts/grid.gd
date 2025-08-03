@@ -1,8 +1,11 @@
 class_name FactoryGrid
 extends Node2D
 
+@onready var buildings: Array[Building] = Building.load_from_resources_folder("res://assets/buildings")
 @onready var tile_map: FactoryTileMap = $TileMapLayer
+@onready var building_map_layer: FactoryTileMap = $BuildingMapLayer
 @export var config: GridConfig
+
 
 var grid_sizes: GridSizes
 
@@ -32,51 +35,38 @@ func _ready() -> void:
 	self.map_builder.build_ores()
 	
 
-func set_tile_at(pos: Vector2i, new_tile: TILES) -> void:
-	if not is_in_grid(pos): return
-
-	var tile := self.get_tile_at(pos)
-	var tilemap_position = tile_map.local_to_map(pos)
+func set_tile_at(tilemap_position: Vector2i, new_tile: TILES) -> void:
+	var tile := self.get_tile_at(tilemap_position)
 
 	if not tile:
 		tile = Tile.new(tilemap_position, new_tile, self.grid_sizes.tile.size)
-		GRID[tile.center_position] = tile
-		GRID_BY_MAP_POS[tilemap_position] = tile
+		GRID[tilemap_position] = tile
 
-	GRID[tile.center_position].tile_type = new_tile
-	GRID_BY_MAP_POS[tilemap_position].tile_type = new_tile
+	GRID[tilemap_position].tile_type = new_tile
 	
-	tile_map.change_tile(pos, new_tile, true)
+	tile_map.change_tile(tilemap_position, new_tile)
 	tile_type_changed.emit(new_tile)
 	
-func get_tile_at(pos: Vector2i, use_tile_map_coords: bool = false) -> Tile:
-	if use_tile_map_coords:
-		return GRID_BY_MAP_POS.get(pos, null)
-
-	if not is_in_grid(pos): return null
-
-	var nearest_center_pos: Vector2i = Vector2i(grid_sizes.tile.half + Vector2i(pos / grid_sizes.tile.size) * grid_sizes.tile.size)
-	var tile: Tile = GRID.get(nearest_center_pos, null)
-
-	return tile
-
-# Fetch tiles by the index of the tile in the grid, as if it was a matrix
-# The grid index grow from top to bottom, left to right
-func get_tile_by_grid_index(index: Vector2i) -> Tile:
-	return GRID_BY_MAP_POS.get(index, null)
+func get_tile_at(tilemap_position: Vector2i) -> Tile:
+	return GRID.get(tilemap_position, null)
 
 func init_tiles() -> void:
-	for x in range(-grid_sizes.by_grid.half.x, grid_sizes.by_grid.half.x):
-		for y in range(-grid_sizes.by_grid.half.y, grid_sizes.by_grid.half.y):
-			var pos := Vector2i(x * grid_sizes.tile.size.x + 1, y * grid_sizes.tile.size.y + 1)
-			self.set_tile_at(pos, TILES.DEFAULT)
+	for x in range(grid_sizes.by_grid.limits.left, grid_sizes.by_grid.limits.right + 1):
+		for y in range(grid_sizes.by_grid.limits.top, grid_sizes.by_grid.limits.bottom + 1):
+			self.set_tile_at(Vector2i(x, y), TILES.DEFAULT)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("click"):
 		var local_mouse_pos := self.get_local_mouse_position()
-		var local_int := Vector2i(int(local_mouse_pos.x), int(local_mouse_pos.y))
+		var local_int := self.tile_map.local_to_map(local_mouse_pos)
 	
-		self.set_tile_at(local_int, TILES.YELLOW)
+		var tile = self.get_tile_at(local_int)
+		if tile:
+			self.set_building_at(tile, self.buildings[0])
 		
 func is_in_grid(pos: Vector2):
 	return not (pos.x < grid_sizes.by_px.limits.left or pos.y < grid_sizes.by_px.limits.top or pos.x >= grid_sizes.by_px.limits.right or pos.y >= grid_sizes.by_px.limits.bottom)
+
+func set_building_at(tile: Tile, building: Building) -> void:
+	building_map_layer.set_cell(tile.tilemap_position, building.tileset_id, Vector2i(0, 0), building.tileset_tile_id)
+	tile.building = building

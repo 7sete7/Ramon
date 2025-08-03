@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dd1jdw87naj5l" path="res://scenes/factory/camera.gd" id="1_hdo8d"]
 [ext_resource type="Script" uid="uid://inqhpr7jr2bh" path="res://scripts/grid.gd" id="2_ciing"]
 [ext_resource type="Script" uid="uid://dk53b32rjg0ci" path="res://scenes/factory/tile_map.gd" id="2_eqtml"]
-[ext_resource type="Resource" uid="uid://cxb2oue8b4314" path="res://configs/factory_grid_config.tres" id="3_37mx5"]
+[ext_resource type="Resource" uid="uid://cimk8p20atqsf" path="res://configs/factory_grid_config.tres" id="3_37mx5"]
 [ext_resource type="PackedScene" uid="uid://bttlr7ljxvsyy" path="res://scenes/hud/hud.tscn" id="3_y13uf"]
 
 [node name="Factory" type="Node2D"]
@@ -18,6 +18,11 @@ script = ExtResource("2_ciing")
 config = ExtResource("3_37mx5")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Grid"]
+tile_set = ExtResource("1_drj7t")
+script = ExtResource("2_eqtml")
+
+[node name="BuildingMapLayer" type="TileMapLayer" parent="Grid"]
+tile_map_data = PackedByteArray(0, 0, 253, 255, 0, 0, 8, 0, 0, 0, 0, 0, 1, 0)
 tile_set = ExtResource("1_drj7t")
 script = ExtResource("2_eqtml")
 

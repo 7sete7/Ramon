@@ -19,16 +19,19 @@ func _process(delta: float) -> void:
 	
 	process_timer = 0.0
 	
-	var mouse_pos := hud.grid.get_local_mouse_position()
-	var int_pos := Vector2i(int(mouse_pos.x), int(mouse_pos.y))
+	var mouse_pos := hud.grid.tile_map.local_to_map(hud.grid.tile_map.get_local_mouse_position())
 	
-	var tile := hud.grid.get_tile_at(int_pos)
+	var tile := hud.grid.get_tile_at(mouse_pos)
 	if tile != current_tile:
 		current_tile = tile
 		self.update_label()
 		
 func update_label() -> void:
-	self.text = "{pos} {type}".format({
-		"pos": current_tile.tilemap_position if current_tile else "(øø, øø)",
-		"type": current_tile.tile_type_str if current_tile else ""
-	})
+	if current_tile:
+		self.text = "{pos} {type} {building}".format({
+			"pos": current_tile.tilemap_position,
+			"type": current_tile.tile_type_str,
+			"building": "\n" + current_tile.building.name if current_tile.building else ""
+		})
+	else:
+		self.text = "(øø, øø)"

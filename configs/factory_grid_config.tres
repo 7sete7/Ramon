@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="GridConfig" load_steps=2 format=3 uid="uid://cxb2oue8b4314"]
+[gd_resource type="Resource" script_class="GridConfig" load_steps=2 format=3 uid="uid://cimk8p20atqsf"]
 
-[ext_resource type="Script" uid="uid://cqlqwj8ea2cs5" path="res://scripts/grid_config.gd" id="1_7s52m"]
+[ext_resource type="Script" uid="uid://cqlqwj8ea2cs5" path="res://scripts/grid_config.gd" id="1_fcvfe"]
 
 [resource]
-script = ExtResource("1_7s52m")
+script = ExtResource("1_fcvfe")
 map_width = 160
 map_height = 160
 map_ore_coverage = 25

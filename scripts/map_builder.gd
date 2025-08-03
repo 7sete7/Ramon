@@ -38,14 +38,14 @@ func spawn_ore_clump(ore_type: FactoryGrid.TILES, clump_size: int) -> int:
 	var start_x := rng.randi_range(grid_settings.limits.left, grid_settings.limits.right)
 	var start_y := rng.randi_range(grid_settings.limits.top, grid_settings.limits.bottom)
 	var current_tile_pos := Vector2i(start_x, start_y)
-	var current_tile = grid.get_tile_by_grid_index(current_tile_pos)
+	var current_tile = grid.get_tile_at(current_tile_pos)
 	var clump: Array[Tile] = []
 
 
 	var placed = 0
 	while placed < clump_size:
 		if current_tile:
-			grid.set_tile_at(current_tile.center_position, ore_type)
+			grid.set_tile_at(current_tile.tilemap_position, ore_type)
 			clump.append(current_tile)
 			placed += 1
 		else:
@@ -77,6 +77,6 @@ func pick_next_tile_on_clump(current_tile_pos: Vector2i, ore_type: FactoryGrid.T
 		var dir := directions[direction_index]
 		var new_pos := current_tile_pos + dir
 		
-		var tile := grid.get_tile_by_grid_index(new_pos)
+		var tile := grid.get_tile_at(new_pos)
 		if tile != null and tile.tile_type != ore_type:
 			return tile
