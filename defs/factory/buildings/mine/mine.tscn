@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwd6bck5n1oxu"]
 
-[ext_resource type="Texture2D" uid="uid://dkp6qpi2bb2ui" path="res://assets/ChatGPT Image 2 de ago. de 2025, 02_41_59.png" id="1_1mfgo"]
+[ext_resource type="Texture2D" uid="uid://dkp6qpi2bb2ui" path="res://assets/ChatGPT Image 2 de ago. de 2025, 02_41_59.png" id="2_w4lpq"]
 
 [node name="Area2D" type="Area2D"]
 
 [node name="Node2D" type="Sprite2D" parent="."]
 scale = Vector2(0.006, 0.006)
-texture = ExtResource("1_1mfgo")
+texture = ExtResource("2_w4lpq")

@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://bttlr7ljxvsyy"]
+
+[ext_resource type="Script" uid="uid://bt8p213hs6afa" path="res://defs/factory/hud/hud.gd" id="1_cgeww"]
+[ext_resource type="Script" uid="uid://cg2mb2378y7ph" path="res://defs/factory/hud/tile_info.gd" id="1_fmyca"]
+[ext_resource type="LabelSettings" uid="uid://c5x7kwny3d4g" path="res://assets/text/default_small.tres" id="2_c45xl"]
+[ext_resource type="ButtonGroup" uid="uid://8w34ow7ynsbt" path="res://defs/factory/hud/building_menu/menu_btn_group.tres" id="4_dmu0a"]
+[ext_resource type="Script" uid="uid://cnmfcpojhik2d" path="res://defs/factory/hud/building_menu/building_menu.gd" id="4_o3u1m"]
+[ext_resource type="Script" uid="uid://cpwhn6wa0erja" path="res://defs/factory/hud/building_menu/menu_button.gd" id="5_x4c6l"]
+
+[sub_resource type="Gradient" id="Gradient_x4c6l"]
+offsets = PackedFloat32Array(0.118687, 0.765152)
+colors = PackedColorArray(0.0705882, 0.0980392, 0.760784, 1, 0.0784314, 0.8, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o3u1m"]
+gradient = SubResource("Gradient_x4c6l")
+width = 16
+height = 16
+fill_from = Vector2(0, 1)
+
+[node name="HUD" type="PanelContainer"]
+self_modulate = Color(1, 0.0745098, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cgeww")
+
+[node name="TileInfo" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Boan tarden"
+label_settings = ExtResource("2_c45xl")
+script = ExtResource("1_fmyca")
+
+[node name="BuildingMenu" type="HBoxContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+script = ExtResource("4_o3u1m")
+
+[node name="BuildingSections" type="GridContainer" parent="BuildingMenu"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Production" type="TextureButton" parent="BuildingMenu/BuildingSections"]
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 2
+tooltip_text = "Producao"
+toggle_mode = true
+button_group = ExtResource("4_dmu0a")
+texture_normal = SubResource("GradientTexture2D_o3u1m")
+stretch_mode = 5
+script = ExtResource("5_x4c6l")
+ID = "prod"
+section_name = "Produçao"
+
+[node name="Misc" type="TextureButton" parent="BuildingMenu/BuildingSections"]
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 2
+tooltip_text = "Producao"
+toggle_mode = true
+button_group = ExtResource("4_dmu0a")
+texture_normal = SubResource("GradientTexture2D_o3u1m")
+stretch_mode = 5
+script = ExtResource("5_x4c6l")
+ID = "misc"
+section_name = "Outros"
+
+[node name="BuildingsContainer" type="PanelContainer" parent="BuildingMenu"]
+visible = false
+self_modulate = Color(0.261751, 0.457339, 0.510887, 1)
+layout_mode = 2
+
+[node name="Buildings" type="GridContainer" parent="BuildingMenu/BuildingsContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+columns = 2

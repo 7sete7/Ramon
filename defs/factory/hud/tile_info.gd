@@ -1,6 +1,6 @@
 extends Label
 
-@onready var hud: HUD = get_node("/root/Factory/CanvasLayer/HUD")
+@onready var hud: HUD = $".."
 var process_timer := 0.0
 var process_interval := 0.1 # Process every 0.1 seconds (10 times per second)
 
@@ -8,7 +8,7 @@ var current_tile: Tile
 var enabled = false
 
 func _ready() -> void:
-	if hud and hud.grid:
+	if hud.grid:
 		hud.grid.tile_type_changed.connect(func(_value): self.update_label())
 		enabled = true
 

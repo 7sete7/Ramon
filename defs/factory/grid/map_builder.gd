@@ -16,7 +16,7 @@ func _init(_grid: FactoryGrid) -> void:
 	self.rng.seed = "leo".hash()
 
 func build_ores() -> void:
-	var ore_types = FactoryGrid.TILES.keys()
+	var ore_types = FactoryEnums.TILES.keys()
 	ore_types.erase("DEFAULT")
 
 	var max_ore_count: int = int(self.grid.grid_sizes.grid_size * self.config.map_ore_coverage / 100)
@@ -28,11 +28,11 @@ func build_ores() -> void:
 		while remaining_ores > 0:
 			var clump_size: int = rng.randi_range(config.min_ore_per_clump, config.max_ore_per_clump)
 			clump_size = clamp(clump_size, config.min_ore_per_clump, remaining_ores)
-			print(ore_type, " Remaining ores: ", remaining_ores, " Clump size: ", clump_size)
-			remaining_ores -= spawn_ore_clump(FactoryGrid.TILES[ore_type], clump_size)
+			#print(ore_type, " Remaining ores: ", remaining_ores, " Clump size: ", clump_size)
+			remaining_ores -= spawn_ore_clump(FactoryEnums.TILES[ore_type], clump_size)
 
 
-func spawn_ore_clump(ore_type: FactoryGrid.TILES, clump_size: int) -> int:
+func spawn_ore_clump(ore_type: FactoryEnums.TILES, clump_size: int) -> int:
 	# Pick a random starting tile index
 	var grid_settings = grid.grid_sizes.by_grid
 	var start_x := rng.randi_range(grid_settings.limits.left, grid_settings.limits.right)
@@ -65,7 +65,7 @@ func spawn_ore_clump(ore_type: FactoryGrid.TILES, clump_size: int) -> int:
 		
 	return placed
 
-func pick_next_tile_on_clump(current_tile_pos: Vector2i, ore_type: FactoryGrid.TILES):
+func pick_next_tile_on_clump(current_tile_pos: Vector2i, ore_type: FactoryEnums.TILES):
 	# Directions: N, E, S, W
 	var directions: Array[Vector2i] = [Vector2i(0, -1), Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0)]
 	var new_dir_idx := rng.randi_range(0, directions.size() - 1)

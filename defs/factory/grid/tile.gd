@@ -10,22 +10,22 @@ var tile_type_str: String = "Blank"
 
 var building: Building
 
-var tile_type: FactoryGrid.TILES:
+var tile_type: FactoryEnums.TILES:
 	set(value):
 		tile_type = value
 		match self.tile_type:
-			FactoryGrid.TILES.DEFAULT:
+			FactoryEnums.TILES.DEFAULT:
 				self.tile_type_str = "Blank"
-			FactoryGrid.TILES.GREEN:
+			FactoryEnums.TILES.GREEN:
 				self.tile_type_str = "Green"
-			FactoryGrid.TILES.RED:
+			FactoryEnums.TILES.RED:
 				self.tile_type_str = "Red"
-			FactoryGrid.TILES.YELLOW:
+			FactoryEnums.TILES.YELLOW:
 				self.tile_type_str = "Yellow"
 			_:
 				self.tile_type_str = "Vish"
 
-func _init(tilemap_pos: Vector2i, type: FactoryGrid.TILES, tile_sizes: Vector2i):
+func _init(tilemap_pos: Vector2i, type: FactoryEnums.TILES, tile_sizes: Vector2i):
 	self.tile_type = type
 	self.tile_size = tile_sizes
 	

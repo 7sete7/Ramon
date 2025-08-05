@@ -1,25 +1,15 @@
 class_name FactoryGrid
 extends Node2D
 
-@onready var buildings: Array[Building] = Building.load_from_resources_folder("res://assets/buildings")
+@onready var building_manager: BuildingManager = $"../BuildingManager"
 @onready var tile_map: FactoryTileMap = $TileMapLayer
 @onready var building_map_layer: FactoryTileMap = $BuildingMapLayer
 @export var config: GridConfig
-
+ 
 
 var grid_sizes: GridSizes
-
 var map_builder: MapBuilder
-
 var GRID: Dictionary = {}
-var GRID_BY_MAP_POS: Dictionary = {}
-
-enum TILES {
-	DEFAULT = 0,
-	GREEN = 4,
-	RED = 5,
-	YELLOW = 6
-}
 
 signal tile_type_changed(new_type)
 
@@ -35,7 +25,7 @@ func _ready() -> void:
 	self.map_builder.build_ores()
 	
 
-func set_tile_at(tilemap_position: Vector2i, new_tile: TILES) -> void:
+func set_tile_at(tilemap_position: Vector2i, new_tile: FactoryEnums.TILES) -> void:
 	var tile := self.get_tile_at(tilemap_position)
 
 	if not tile:
@@ -53,7 +43,7 @@ func get_tile_at(tilemap_position: Vector2i) -> Tile:
 func init_tiles() -> void:
 	for x in range(grid_sizes.by_grid.limits.left, grid_sizes.by_grid.limits.right + 1):
 		for y in range(grid_sizes.by_grid.limits.top, grid_sizes.by_grid.limits.bottom + 1):
-			self.set_tile_at(Vector2i(x, y), TILES.DEFAULT)
+			self.set_tile_at(Vector2i(x, y), FactoryEnums.TILES.DEFAULT)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("click"):
@@ -62,7 +52,7 @@ func _process(_delta: float) -> void:
 	
 		var tile = self.get_tile_at(local_int)
 		if tile:
-			self.set_building_at(tile, self.buildings[0])
+			self.set_building_at(tile, self.building_manager.get_building("mine"))
 		
 func is_in_grid(pos: Vector2):
 	return not (pos.x < grid_sizes.by_px.limits.left or pos.y < grid_sizes.by_px.limits.top or pos.x >= grid_sizes.by_px.limits.right or pos.y >= grid_sizes.by_px.limits.bottom)
