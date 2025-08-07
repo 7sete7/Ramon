@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BuildingResource" load_steps=3 format=3 uid="uid://bvrurrjy23lu2"]
+
+[ext_resource type="Script" uid="uid://bow34jb2h84ir" path="res://defs/factory/buildings/building_resource.gd" id="1_518b4"]
+[ext_resource type="Texture2D" uid="uid://5kv1x16fqmwe" path="res://assets/belt.png" id="2_jsc22"]
+
+[resource]
+script = ExtResource("1_518b4")
+ID = "cvyr-0"
+name = "Conveyor"
+description = "Um bagulho que levas os itens"
+texture = ExtResource("2_jsc22")
+tileset_id = 8
+tileset_tile_id = 2
+currency = 0
+price = 0.0
+tile_sprite_offset = Vector2(0, 0)
+metadata/_custom_type_script = "uid://bow34jb2h84ir"

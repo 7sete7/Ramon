@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bttlr7ljxvsyy"]
+[gd_scene load_steps=11 format=3 uid="uid://bttlr7ljxvsyy"]
 
 [ext_resource type="Script" uid="uid://bt8p213hs6afa" path="res://defs/factory/hud/hud.gd" id="1_cgeww"]
 [ext_resource type="Script" uid="uid://cg2mb2378y7ph" path="res://defs/factory/hud/tile_info.gd" id="1_fmyca"]
@@ -6,6 +6,8 @@
 [ext_resource type="ButtonGroup" uid="uid://8w34ow7ynsbt" path="res://defs/factory/hud/building_menu/menu_btn_group.tres" id="4_dmu0a"]
 [ext_resource type="Script" uid="uid://cnmfcpojhik2d" path="res://defs/factory/hud/building_menu/building_menu.gd" id="4_o3u1m"]
 [ext_resource type="Script" uid="uid://cpwhn6wa0erja" path="res://defs/factory/hud/building_menu/menu_button.gd" id="5_x4c6l"]
+[ext_resource type="Theme" uid="uid://1301nnoho04" path="res://assets/themes/default.tres" id="7_p4pcj"]
+[ext_resource type="Script" uid="uid://b4vdnj81ubh02" path="res://defs/factory/hud/building_menu/buildings_list.gd" id="7_wnefr"]
 
 [sub_resource type="Gradient" id="Gradient_x4c6l"]
 offsets = PackedFloat32Array(0.118687, 0.765152)
@@ -76,7 +78,14 @@ visible = false
 self_modulate = Color(0.261751, 0.457339, 0.510887, 1)
 layout_mode = 2
 
-[node name="Buildings" type="GridContainer" parent="BuildingMenu/BuildingsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="BuildingMenu/BuildingsContainer"]
+self_modulate = Color(0.262745, 0.458824, 0.509804, 1)
+layout_mode = 2
+
+[node name="BuildingsList" type="GridContainer" parent="BuildingMenu/BuildingsContainer/MarginContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme = ExtResource("7_p4pcj")
 columns = 2
+script = ExtResource("7_wnefr")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://flkfaic28wnk"]
+
+[ext_resource type="Theme" uid="uid://1301nnoho04" path="res://assets/themes/default.tres" id="1_50tck"]
+[ext_resource type="Script" uid="uid://bshyctmcb5ehb" path="res://defs/factory/hud/building_menu/building.gd" id="2_fe4h3"]
+[ext_resource type="SystemFont" uid="uid://xq1lxm3eaqux" path="res://assets/text/small_font.tres" id="3_fe4h3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xmplm"]
+font = ExtResource("3_fe4h3")
+font_size = 4
+
+[node name="Building" type="MarginContainer"]
+custom_minimum_size = Vector2(25, 25)
+offset_right = 25.0
+offset_bottom = 25.0
+theme = ExtResource("1_50tck")
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+script = ExtResource("2_fe4h3")
+
+[node name="Texture" type="TextureRect" parent="."]
+layout_mode = 2
+theme = ExtResource("1_50tck")
+expand_mode = 3
+
+[node name="Price" type="Label" parent="."]
+texture_filter = 2
+layout_mode = 2
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_xmplm")
+horizontal_alignment = 2

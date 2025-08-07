@@ -40,6 +40,14 @@ enabled=PackedStringArray()
 
 import/blender/enabled=false
 
+[global_group]
+
+"building manager"=""
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [input]
 
 click={

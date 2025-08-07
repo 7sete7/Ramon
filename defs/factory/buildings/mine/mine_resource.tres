@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MineResource" load_steps=3 format=3 uid="uid://dahvl7km3fh1m"]
 
-[ext_resource type="Texture2D" uid="uid://dkp6qpi2bb2ui" path="res://assets/ChatGPT Image 2 de ago. de 2025, 02_41_59.png" id="1_kof30"]
+[ext_resource type="Texture2D" uid="uid://dkp6qpi2bb2ui" path="res://assets/mine.png" id="1_kof30"]
 
 [sub_resource type="GDScript" id="GDScript_ycq4f"]
 script/source = "class_name MineResource

@@ -3,10 +3,12 @@ extends Node2D
 
 var resources: Dictionary[String, BuildingResource] = {}
 var building_classes: Dictionary[String, GDScript] = {}
+var sections: Dictionary[String, Array] = {}
 
 #@onready var building_menu: BuildingMenu = $"../CanvasLayer/HUD/BuildingMenu"
 func _ready() -> void:
 	self.register_building("prod", FactoryMine)
+	self.register_building("misc", FactoryBelt)
 
 
 func register_building(section_id: String, building_class: GDScript) -> void:
@@ -24,8 +26,8 @@ func register_building(section_id: String, building_class: GDScript) -> void:
 	self.resources[resource.ID] = resource
 	
 	# Add to section
-	#var section: MenuSection = self.sections.get_or_add(section_id, MenuSection.new(section_id, section_id))
-	#section.add_building_if_hasnt(resource.ID)
+	var section_array = self.sections.get_or_add(section_id, [])
+	section_array.append(resource.ID)
 	
 
 func get_building(building_id: String) -> Building:

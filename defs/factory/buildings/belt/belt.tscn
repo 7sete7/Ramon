@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bro101601uv08"]
+
+[ext_resource type="Texture2D" uid="uid://5kv1x16fqmwe" path="res://assets/belt.png" id="1_ehgfv"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Node2D" type="Sprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_ehgfv")

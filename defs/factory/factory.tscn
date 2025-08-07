@@ -14,7 +14,7 @@
 script = ExtResource("1_tqf04")
 zoom_delta = 0.08
 
-[node name="BuildingManager" type="Node2D" parent="."]
+[node name="BuildingManager" type="Node2D" parent="." groups=["building manager"]]
 script = ExtResource("2_whpt7")
 
 [node name="Grid" type="Node2D" parent="."]
@@ -26,7 +26,6 @@ tile_set = ExtResource("4_1jo8g")
 script = ExtResource("5_d4rlk")
 
 [node name="BuildingMapLayer" type="TileMapLayer" parent="Grid"]
-tile_map_data = PackedByteArray(0, 0, 253, 255, 0, 0, 8, 0, 0, 0, 0, 0, 1, 0)
 tile_set = ExtResource("4_1jo8g")
 script = ExtResource("5_d4rlk")
 

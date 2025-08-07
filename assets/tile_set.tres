@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://b7rc21o4qmq3d"]
+[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://b7rc21o4qmq3d"]
 
 [ext_resource type="Texture2D" uid="uid://8801k5xv2wko" path="res://assets/graybox.png" id="1_eslq1"]
 [ext_resource type="Texture2D" uid="uid://3h5qax6vcra6" path="res://assets/green.png" id="2_u6000"]
 [ext_resource type="Texture2D" uid="uid://bkb05iryew1wy" path="res://assets/red.png" id="3_u4lx5"]
 [ext_resource type="Texture2D" uid="uid://nw4uymw2aj7o" path="res://assets/yellow.png" id="4_cpn64"]
 [ext_resource type="PackedScene" uid="uid://bwd6bck5n1oxu" path="res://defs/factory/buildings/mine/mine.tscn" id="5_u4lx5"]
+[ext_resource type="PackedScene" uid="uid://bro101601uv08" path="res://defs/factory/buildings/belt/belt.tscn" id="6_cpn64"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_u6000"]
 tile_data = PackedInt32Array(65536, 4, 0, 131072, 4, 0, 196608, 4, 0, 1, 4, 0, 65537, 4, 0, 131073, 4, 0, 2, 4, 0, 65538, 4, 0, 131074, 4, 0, 196610, 4, 0, 65539, 4, 0, 131075, 4, 0, 196611, 4, 0)
@@ -44,6 +45,7 @@ texture = ExtResource("4_cpn64")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_cpn64"]
 scenes/1/scene = ExtResource("5_u4lx5")
+scenes/2/scene = ExtResource("6_cpn64")
 
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_ki5qi")

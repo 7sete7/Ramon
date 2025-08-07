@@ -1,6 +1,6 @@
 extends Label
 
-@onready var hud: HUD = $".."
+@onready var hud: HUD = owner
 var process_timer := 0.0
 var process_interval := 0.1 # Process every 0.1 seconds (10 times per second)
 

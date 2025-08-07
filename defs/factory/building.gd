@@ -17,6 +17,7 @@ var price: float = 0.0
 var tile_sprite_offset: Vector2
 
 var tilemap_position: Vector2i
+var texture: Texture2D
 
 func _init() -> void:
 	pass
@@ -28,6 +29,7 @@ func load_from_resource(resource: BuildingResource) -> void:
 	self.tileset_id = resource.tileset_id
 	self.tileset_tile_id = resource.tileset_tile_id
 	self.tile_sprite_offset = resource.tile_sprite_offset
+	self.texture = resource.texture
 
 func should_place(tilemap_position: Vector2i) -> bool:
 	return false

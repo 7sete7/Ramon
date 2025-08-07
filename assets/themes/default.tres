@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://1301nnoho04"]
+
+[ext_resource type="SystemFont" uid="uid://xq1lxm3eaqux" path="res://assets/text/small_font.tres" id="1_x0tin"]
+
+[resource]
+default_font = ExtResource("1_x0tin")
+default_font_size = 16
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
