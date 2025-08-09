@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcobh33jbo5cn"]
+[gd_scene load_steps=9 format=3 uid="uid://bcobh33jbo5cn"]
 
 [ext_resource type="Script" uid="uid://dyijol5gw0gvv" path="res://defs/factory/factory.gd" id="1_r511i"]
 [ext_resource type="Script" uid="uid://dd1jdw87naj5l" path="res://defs/factory/camera.gd" id="1_tqf04"]
@@ -8,21 +8,6 @@
 [ext_resource type="TileSet" uid="uid://b7rc21o4qmq3d" path="res://assets/tile_set.tres" id="4_1jo8g"]
 [ext_resource type="Script" uid="uid://dk53b32rjg0ci" path="res://defs/factory/grid/tile_map.gd" id="5_d4rlk"]
 [ext_resource type="PackedScene" uid="uid://bttlr7ljxvsyy" path="res://defs/factory/hud/hud.tscn" id="6_tijn1"]
-[ext_resource type="Script" uid="uid://bwgmheob7vn5b" path="res://defs/factory/buildings/building_mode.gd" id="9_wix6r"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r511i"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0.639216, 0.639216, 0.639216, 0.627451)
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 3
 
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_r511i")
@@ -49,17 +34,6 @@ tile_set = ExtResource("4_1jo8g")
 script = ExtResource("5_d4rlk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="BuildingMode" type="PanelContainer" parent="CanvasLayer"]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_r511i")
-script = ExtResource("9_wix6r")
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_tijn1")]
 unique_name_in_owner = true

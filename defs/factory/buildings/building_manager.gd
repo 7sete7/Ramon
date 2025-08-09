@@ -5,8 +5,6 @@ var resources: Dictionary[String, BuildingResource] = {}
 var building_classes: Dictionary[String, GDScript] = {}
 var sections: Dictionary[FactoryEnums.BUILDING_SECTIONS, Array] = {}
 
-@onready var building_mode: BuildingMode = %BuildingMode
-
 func _ready() -> void:
 	GameFactory.building_manager = self
 	self.register_building(FactoryEnums.BUILDING_SECTIONS.PRODUCTION, FactoryMine)
@@ -43,4 +41,5 @@ func get_building(building_id: String) -> Building:
 	return building_instance
 
 func toggle_building_mode_with(building: Building):
-	self.building_mode.current_building = building
+	GameFactory.hud.building_mode.current_building = building
+	GameFactory.hud.buildings_list.update_displays_with(building)

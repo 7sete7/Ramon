@@ -44,12 +44,9 @@ func init_tiles() -> void:
 		for y in range(grid_sizes.by_grid.limits.top, grid_sizes.by_grid.limits.bottom + 1):
 			self.set_tile_at(Vector2i(x, y), FactoryEnums.TILES.DEFAULT)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("click"):
-		var local_mouse_pos := self.get_local_mouse_position()
-		var local_int := self.tile_map.local_to_map(local_mouse_pos)
-	
-		var tile = self.get_tile_at(local_int)
+func ss_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("click"):	
+		var tile = self.get_tile_at(self.get_position_under_mouse())
 		if tile:
 			self.set_building_at(tile, GameFactory.building_manager.get_building("mine"))
 		
@@ -59,3 +56,7 @@ func is_in_grid(pos: Vector2):
 func set_building_at(tile: Tile, building: Building) -> void:
 	building_map_layer.set_cell(tile.tilemap_position, building.tileset_id, Vector2i(0, 0), building.tileset_tile_id)
 	tile.building = building
+
+func get_position_under_mouse() -> Vector2i:
+	var local_mouse_pos := self.get_local_mouse_position()
+	return self.tile_map.local_to_map(local_mouse_pos)

@@ -36,14 +36,25 @@ func reset_list():
 		child.queue_free()
 
 func on_building_select(btn: TextureButton):
-	var menu_building: MenuBuilding = self.buildings.get(btn.name)
-	menu_building.toggle_border(btn.button_pressed)
-
-	var selected_building: Building
+	var selected_building: Building = null
 	if btn.button_pressed:
 		selected_building = GameFactory.building_manager.get_building(btn.name)
-		if self.current_selected: self.current_selected.toggle_border(false)
+		#if self.current_selected: self.current_selected.toggle_border(false)
+	
+	#var menu_building: MenuBuilding = self.buildings.get(btn.name)
+	#menu_building.toggle_border(btn.button_pressed)
+
+	#self.current_selected = menu_building
+	GameFactory.building_manager.toggle_building_mode_with(selected_building)
+
+func update_displays_with(building: Building):
+	if building == null:
+		self.current_selected.toggle_border(false)
+		self.current_selected = null
+		return
+	
+	if self.current_selected: self.current_selected.toggle_border(false)
+	var menu_building: MenuBuilding = self.buildings.get(building.ID)
+	menu_building.toggle_border(true)
 
 	self.current_selected = menu_building
-	GameFactory.building_manager.toggle_building_mode_with(selected_building)
-	

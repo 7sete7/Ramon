@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bttlr7ljxvsyy"]
+[gd_scene load_steps=13 format=3 uid="uid://bttlr7ljxvsyy"]
 
 [ext_resource type="Script" uid="uid://bt8p213hs6afa" path="res://defs/factory/hud/hud.gd" id="1_cgeww"]
 [ext_resource type="Script" uid="uid://cg2mb2378y7ph" path="res://defs/factory/hud/tile_info.gd" id="1_fmyca"]
@@ -8,6 +8,21 @@
 [ext_resource type="Script" uid="uid://cpwhn6wa0erja" path="res://defs/factory/hud/building_menu/menu_button.gd" id="5_x4c6l"]
 [ext_resource type="Theme" uid="uid://1301nnoho04" path="res://assets/themes/default.tres" id="7_p4pcj"]
 [ext_resource type="Script" uid="uid://b4vdnj81ubh02" path="res://defs/factory/hud/building_menu/buildings_list.gd" id="7_wnefr"]
+[ext_resource type="Script" uid="uid://bwgmheob7vn5b" path="res://defs/factory/buildings/building_mode.gd" id="9_2ml4q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gi13f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.639216, 0.639216, 0.639216, 0.627451)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 3
 
 [sub_resource type="Gradient" id="Gradient_x4c6l"]
 offsets = PackedFloat32Array(0.118687, 0.765152)
@@ -28,6 +43,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cgeww")
 
+[node name="BuildingMode" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_gi13f")
+script = ExtResource("9_2ml4q")
+
 [node name="TileInfo" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -37,6 +60,7 @@ label_settings = ExtResource("2_c45xl")
 script = ExtResource("1_fmyca")
 
 [node name="BuildingMenu" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 0
