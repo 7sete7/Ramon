@@ -1,6 +1,5 @@
 extends Label
 
-@onready var hud: HUD = owner
 var process_timer := 0.0
 var process_interval := 0.1 # Process every 0.1 seconds (10 times per second)
 
@@ -8,8 +7,8 @@ var current_tile: Tile
 var enabled = false
 
 func _ready() -> void:
-	if hud.grid:
-		hud.grid.tile_type_changed.connect(func(_value): self.update_label())
+	if GameFactory.grid:
+		Events.from_factory.tile_changed.connect(self.update_label)
 		enabled = true
 
 func _process(delta: float) -> void:
@@ -19,9 +18,9 @@ func _process(delta: float) -> void:
 	
 	process_timer = 0.0
 	
-	var mouse_pos := hud.grid.tile_map.local_to_map(hud.grid.tile_map.get_local_mouse_position())
+	var mouse_pos := GameFactory.grid.tile_map.local_to_map(GameFactory.grid.tile_map.get_local_mouse_position())
 	
-	var tile := hud.grid.get_tile_at(mouse_pos)
+	var tile := GameFactory.grid.get_tile_at(mouse_pos)
 	if tile != current_tile:
 		current_tile = tile
 		self.update_label()

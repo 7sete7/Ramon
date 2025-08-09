@@ -1,5 +1,5 @@
 class_name HUD
 extends PanelContainer
 
-@export var grid: FactoryGrid
-@export var building_manager: BuildingManager
+func _ready() -> void:
+	GameFactory.hud = self

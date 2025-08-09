@@ -1,7 +1,6 @@
 class_name FactoryGrid
 extends Node2D
 
-@onready var building_manager: BuildingManager = $"../BuildingManager"
 @onready var tile_map: FactoryTileMap = $TileMapLayer
 @onready var building_map_layer: FactoryTileMap = $BuildingMapLayer
 @export var config: GridConfig
@@ -11,9 +10,9 @@ var grid_sizes: GridSizes
 var map_builder: MapBuilder
 var GRID: Dictionary = {}
 
-signal tile_type_changed(new_type)
-
 func _ready() -> void:
+	GameFactory.grid = self
+
 	if not config:
 		config = GridConfig.new()
 	
@@ -35,7 +34,7 @@ func set_tile_at(tilemap_position: Vector2i, new_tile: FactoryEnums.TILES) -> vo
 	GRID[tilemap_position].tile_type = new_tile
 	
 	tile_map.change_tile(tilemap_position, new_tile)
-	tile_type_changed.emit(new_tile)
+	Events.from_factory.tile_changed.emit(tile)
 	
 func get_tile_at(tilemap_position: Vector2i) -> Tile:
 	return GRID.get(tilemap_position, null)
@@ -52,7 +51,7 @@ func _process(_delta: float) -> void:
 	
 		var tile = self.get_tile_at(local_int)
 		if tile:
-			self.set_building_at(tile, self.building_manager.get_building("mine"))
+			self.set_building_at(tile, GameFactory.building_manager.get_building("mine"))
 		
 func is_in_grid(pos: Vector2):
 	return not (pos.x < grid_sizes.by_px.limits.left or pos.y < grid_sizes.by_px.limits.top or pos.x >= grid_sizes.by_px.limits.right or pos.y >= grid_sizes.by_px.limits.bottom)

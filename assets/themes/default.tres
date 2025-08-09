@@ -1,6 +1,10 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://1301nnoho04"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://1301nnoho04"]
 
 [ext_resource type="SystemFont" uid="uid://xq1lxm3eaqux" path="res://assets/text/small_font.tres" id="1_x0tin"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_x0tin"]
+color = Color(1, 1, 1, 1)
+thickness = 2
 
 [resource]
 default_font = ExtResource("1_x0tin")
@@ -9,3 +13,4 @@ MarginContainer/constants/margin_bottom = 5
 MarginContainer/constants/margin_left = 5
 MarginContainer/constants/margin_right = 5
 MarginContainer/constants/margin_top = 5
+MarginContainer/styles/selected = SubResource("StyleBoxLine_x0tin")

@@ -10,3 +10,8 @@ enum TILES {
 	RED = 5,
 	YELLOW = 6
 }
+
+enum BUILDING_SECTIONS {
+	PRODUCTION,
+	MISC
+}

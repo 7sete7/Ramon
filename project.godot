@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout=""
 
+[autoload]
+
+GameFactory="*res://defs/factory/factory.gd"
+Events="*res://utils/events.gd"
+Refs="*res://utils/refs.tscn"
+
 [debug]
 
 gdscript/warnings/unsafe_property_access=1

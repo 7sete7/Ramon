@@ -3,15 +3,16 @@ extends Node2D
 
 var resources: Dictionary[String, BuildingResource] = {}
 var building_classes: Dictionary[String, GDScript] = {}
-var sections: Dictionary[String, Array] = {}
+var sections: Dictionary[FactoryEnums.BUILDING_SECTIONS, Array] = {}
 
-#@onready var building_menu: BuildingMenu = $"../CanvasLayer/HUD/BuildingMenu"
+@onready var building_mode: BuildingMode = %BuildingMode
+
 func _ready() -> void:
-	self.register_building("prod", FactoryMine)
-	self.register_building("misc", FactoryBelt)
+	GameFactory.building_manager = self
+	self.register_building(FactoryEnums.BUILDING_SECTIONS.PRODUCTION, FactoryMine)
+	self.register_building(FactoryEnums.BUILDING_SECTIONS.PRODUCTION, FactoryBelt)
 
-
-func register_building(section_id: String, building_class: GDScript) -> void:
+func register_building(section_id: FactoryEnums.BUILDING_SECTIONS, building_class: GDScript) -> void:
 	# Create temporary instance to get resource location
 	var temp_instance: Building = building_class.new()
 	if not temp_instance is Building:
@@ -28,7 +29,6 @@ func register_building(section_id: String, building_class: GDScript) -> void:
 	# Add to section
 	var section_array = self.sections.get_or_add(section_id, [])
 	section_array.append(resource.ID)
-	
 
 func get_building(building_id: String) -> Building:
 	if not self.building_classes.has(building_id):
@@ -41,3 +41,6 @@ func get_building(building_id: String) -> Building:
 	var building_instance: Building = building_class.new()
 	building_instance.load_from_resource(resource)
 	return building_instance
+
+func toggle_building_mode_with(building: Building):
+	self.building_mode.current_building = building

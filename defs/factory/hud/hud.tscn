@@ -58,7 +58,6 @@ button_group = ExtResource("4_dmu0a")
 texture_normal = SubResource("GradientTexture2D_o3u1m")
 stretch_mode = 5
 script = ExtResource("5_x4c6l")
-ID = "prod"
 section_name = "Produçao"
 
 [node name="Misc" type="TextureButton" parent="BuildingMenu/BuildingSections"]
@@ -70,7 +69,7 @@ button_group = ExtResource("4_dmu0a")
 texture_normal = SubResource("GradientTexture2D_o3u1m")
 stretch_mode = 5
 script = ExtResource("5_x4c6l")
-ID = "misc"
+ID = 1
 section_name = "Outros"
 
 [node name="BuildingsContainer" type="PanelContainer" parent="BuildingMenu"]

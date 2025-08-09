@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctrov0cljnjup"]
+
+[ext_resource type="Script" uid="uid://dafloby770a05" path="res://utils/refs.gd" id="1_cxvj3"]
+[ext_resource type="PackedScene" uid="uid://flkfaic28wnk" path="res://defs/factory/hud/building_menu/building.tscn" id="2_ea6tv"]
+[ext_resource type="StyleBox" uid="uid://ewn7x44nq7r2" path="res://assets/styleboxes/selected_building_stbx.tres" id="3_ea6tv"]
+
+[node name="Refs" type="Node"]
+script = ExtResource("1_cxvj3")
+menu_building_scene = ExtResource("2_ea6tv")
+selected_building_stbx = ExtResource("3_ea6tv")
