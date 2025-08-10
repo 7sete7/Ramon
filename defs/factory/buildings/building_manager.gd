@@ -5,10 +5,14 @@ var resources: Dictionary[String, BuildingResource] = {}
 var building_classes: Dictionary[String, GDScript] = {}
 var sections: Dictionary[FactoryEnums.BUILDING_SECTIONS, Array] = {}
 
+var buildings: Dictionary[Vector2i, Building] = {}
+
 func _ready() -> void:
 	GameFactory.building_manager = self
 	self.register_building(FactoryEnums.BUILDING_SECTIONS.PRODUCTION, FactoryMine)
 	self.register_building(FactoryEnums.BUILDING_SECTIONS.PRODUCTION, FactoryBelt)
+	
+	TickManager.timeout.connect(self.on_tick)
 
 func register_building(section_id: FactoryEnums.BUILDING_SECTIONS, building_class: GDScript) -> void:
 	# Create temporary instance to get resource location
@@ -43,3 +47,22 @@ func get_building(building_id: String) -> Building:
 func toggle_building_mode_with(building: Building):
 	GameFactory.hud.building_mode.current_building = building
 	GameFactory.hud.buildings_list.update_displays_with(building)
+	
+func try_place_building_at(pos: Vector2i, building: Building):
+	if not building.can_place_at(pos):
+		push_warning("Cannot place building %s at %s" % [building.name, pos])
+		return
+
+	var tile: Tile = GameFactory.grid.get_tile_at(pos)
+	GameFactory.grid.set_building_at(tile, building)
+	
+	if building:
+		building.on_placed(tile)
+		self.buildings.set(pos, building)
+	else: 
+		building.on_remove()
+		self.buildings.erase(pos)
+
+func on_tick():
+	for building: Building in self.buildings.values():
+		building.on_tick()

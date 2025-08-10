@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://b575uslm0iixl"]
+
+[node name="TickManager" type="Timer"]
+process_callback = 0

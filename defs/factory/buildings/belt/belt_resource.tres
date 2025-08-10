@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BuildingResource" load_steps=3 format=3 uid="uid://bvrurrjy23lu2"]
 
 [ext_resource type="Script" uid="uid://bow34jb2h84ir" path="res://defs/factory/buildings/building_resource.gd" id="1_518b4"]
-[ext_resource type="Texture2D" uid="uid://5kv1x16fqmwe" path="res://assets/belt.png" id="2_jsc22"]
+[ext_resource type="Texture2D" uid="uid://5kv1x16fqmwe" path="res://assets/images/belt.png" id="2_jsc22"]
 
 [resource]
 script = ExtResource("1_518b4")

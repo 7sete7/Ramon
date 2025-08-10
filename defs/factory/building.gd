@@ -4,20 +4,22 @@ class_name Building
 var ID: String
 var name: String
 var description: String
+var texture: Texture2D
 
 #Tilemap
 var tileset_id: int
 var tileset_tile_id: int
+var tilemap_position: Vector2i
+var tile: Tile
 
 #Economy
 var currency: FactoryEnums.Currency = FactoryEnums.Currency.MONEY
 var price: float = 0.0
 
-#Offset
-var tile_sprite_offset: Vector2
-
-var tilemap_position: Vector2i
-var texture: Texture2D
+# I/O
+# I/O is represented using directions, from the building perspective (Vector2i.LEFT, ...)
+var _input: Array[Vector2i]
+var _output: Array[Vector2i]
 
 func _init() -> void:
 	pass
@@ -28,18 +30,20 @@ func load_from_resource(resource: BuildingResource) -> void:
 	self.description = resource.description
 	self.tileset_id = resource.tileset_id
 	self.tileset_tile_id = resource.tileset_tile_id
-	self.tile_sprite_offset = resource.tile_sprite_offset
 	self.texture = resource.texture
 
-func should_place(tilemap_position: Vector2i) -> bool:
+func can_place_at(tilemap_position: Vector2i) -> bool:
 	return false
 	
 static func get_resource_location() -> String:
 	push_error("get_resource_location() must be implemented in the subclass")
 	return ""
 
-func on_placed() -> void:
-	pass
+func on_placed(_tile: Tile) -> void:
+	self.tile = _tile
 	
 func on_tick() -> void:
+	pass
+
+func on_remove() -> void:
 	pass

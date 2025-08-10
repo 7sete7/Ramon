@@ -7,11 +7,12 @@ func _init() -> void:
 static func get_resource_location() -> String:
 	return "res://defs/factory/buildings/belt/belt_resource.tres"
 
-func should_place(tilemap_position: Vector2i) -> bool:
-	return false
+func can_place_at(tilemap_position: Vector2i) -> bool:
+	var tile: Tile = GameFactory.grid.get_tile_at(tilemap_position)
+	return tile.building == null
 	
-func on_placed() -> void:
-	pass
+func on_placed(_tile: Tile) -> void:
+	super(_tile)
 	
 func on_tick() -> void:
 	pass

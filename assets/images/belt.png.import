@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkp6qpi2bb2ui"
-path="res://.godot/imported/mine.png-ab6c2edc052c246b7ce82bfc0f38a153.ctex"
+uid="uid://5kv1x16fqmwe"
+path="res://.godot/imported/belt.png-8861f7fad4159b650cda9b982d2aece4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mine.png"
-dest_files=["res://.godot/imported/mine.png-ab6c2edc052c246b7ce82bfc0f38a153.ctex"]
+source_file="res://assets/images/belt.png"
+dest_files=["res://.godot/imported/belt.png-8861f7fad4159b650cda9b982d2aece4.ctex"]
 
 [params]
 
