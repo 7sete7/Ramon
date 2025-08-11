@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://csmdwyd4bs445"]
+[gd_scene load_steps=4 format=3 uid="uid://csmdwyd4bs445"]
 
 [ext_resource type="Script" uid="uid://23ucnk1cyncr" path="res://defs/factory/item.gd" id="1_kpibg"]
 [ext_resource type="Texture2D" uid="uid://dd1ge28hs0jjn" path="res://assets/images/red_resource.png" id="2_gqjov"]
 
-[node name="Red" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_kpibg"]
+radius = 1.4
+
+[node name="Red" type="Area2D"]
 script = ExtResource("1_kpibg")
 ID = "red"
 item_name = "Red"
@@ -12,3 +15,6 @@ description = "Red resource"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.006, 0.006)
 texture = ExtResource("2_gqjov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kpibg")

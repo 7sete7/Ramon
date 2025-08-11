@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgo5npo6e0ij"]
+[gd_scene load_steps=4 format=3 uid="uid://dgo5npo6e0ij"]
 
 [ext_resource type="Script" uid="uid://23ucnk1cyncr" path="res://defs/factory/item.gd" id="1_dfrwo"]
 [ext_resource type="Texture2D" uid="uid://dt7a171cm35f6" path="res://assets/images/yellow_resource.png" id="2_dfrwo"]
 
-[node name="Yellow" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dfrwo"]
+radius = 1.9
+
+[node name="Yellow" type="Area2D"]
 script = ExtResource("1_dfrwo")
 ID = "yellow"
 item_name = "Yellow"
@@ -12,3 +15,7 @@ description = "Yellow resource"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.006, 0.006)
 texture = ExtResource("2_dfrwo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.3)
+shape = SubResource("CircleShape2D_dfrwo")

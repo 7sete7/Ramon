@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://covw85kjc51b5"]
+[gd_scene load_steps=4 format=3 uid="uid://covw85kjc51b5"]
 
 [ext_resource type="Script" uid="uid://23ucnk1cyncr" path="res://defs/factory/item.gd" id="1_xow7l"]
 [ext_resource type="Texture2D" uid="uid://deqcs4hskjlcx" path="res://assets/images/green_resource.png" id="2_xow7l"]
 
-[node name="Green" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xow7l"]
+radius = 1.0
+height = 4.0
+
+[node name="Green" type="Area2D"]
 script = ExtResource("1_xow7l")
 ID = "green"
 item_name = "Green"
@@ -12,3 +16,6 @@ description = "Green resource"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.006, 0.006)
 texture = ExtResource("2_xow7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xow7l")

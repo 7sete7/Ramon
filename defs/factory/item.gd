@@ -1,5 +1,5 @@
 class_name Item
-extends Node2D
+extends Area2D
 
 #General
 @export var ID: String
