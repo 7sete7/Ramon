@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource("1_fcvfe")
-map_width = 6
-map_height = 6
-map_ore_coverage = 0
-min_ore_per_clump = 0
-max_ore_per_clump = 0
+map_width = 10
+map_height = 10
+map_ore_coverage = 12
+min_ore_per_clump = 1
+max_ore_per_clump = 5
 tile_width = 16
 tile_height = 16

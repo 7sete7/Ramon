@@ -47,3 +47,24 @@ func on_tick() -> void:
 
 func on_remove() -> void:
 	pass
+
+func push_item_to_output(output_side: Vector2i, item: Item) -> bool:
+	if not output_side in self._output:
+		push_error("Building %s does not output to side: %s" % [self.name, output_side])
+		return false
+
+	var new_tile: Tile = GameFactory.grid.get_tile_at(self.tile.tilemap_position + output_side)
+	if not new_tile:
+		push_error("No tile at %s" % (self.tile.position + output_side))
+		return false
+	
+	print("{} - push item to tile {}".format([self.tilemap_position, new_tile.tilemap_position], "{}"))
+	if not new_tile.building: return false
+	return new_tile.building.input_item_from_input(output_side * -1, item)
+
+func input_item_from_input(input_side: Vector2i, item: Item) -> bool:
+	if not input_side in self._input:
+		push_warning("Input side not valid: %s" % input_side)
+		return false
+
+	return true

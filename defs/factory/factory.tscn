@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://dd1jdw87naj5l" path="res://defs/factory/camera.gd" id="1_tqf04"]
 [ext_resource type="Script" uid="uid://inqhpr7jr2bh" path="res://defs/factory/grid.gd" id="2_tgf4x"]
 [ext_resource type="Script" uid="uid://bb0j3lm78t5ky" path="res://defs/factory/buildings/building_manager.gd" id="2_whpt7"]
-[ext_resource type="Resource" uid="uid://cimk8p20atqsf" path="res://configs/factory_grid_config.tres" id="3_ddt63"]
 [ext_resource type="TileSet" uid="uid://b7rc21o4qmq3d" path="res://assets/tile_set.tres" id="4_1jo8g"]
 [ext_resource type="Script" uid="uid://dk53b32rjg0ci" path="res://defs/factory/grid/tile_map.gd" id="5_d4rlk"]
+[ext_resource type="Resource" uid="uid://cxb2oue8b4314" path="res://configs/factory_grid_config_sm.tres" id="5_r511i"]
 [ext_resource type="PackedScene" uid="uid://bttlr7ljxvsyy" path="res://defs/factory/hud/hud.tscn" id="6_tijn1"]
 
 [node name="Factory" type="Node2D"]
@@ -23,7 +23,7 @@ script = ExtResource("2_whpt7")
 [node name="Grid" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_tgf4x")
-config = ExtResource("3_ddt63")
+config = ExtResource("5_r511i")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Grid"]
 tile_set = ExtResource("4_1jo8g")

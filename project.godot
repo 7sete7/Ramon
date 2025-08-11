@@ -25,6 +25,7 @@ GameFactory="*res://defs/factory/factory.gd"
 Events="*res://utils/events.gd"
 Refs="*res://utils/refs.tscn"
 TickManager="*res://utils/tick_manager.tscn"
+ItemManager="*res://defs/factory/items/item_manager.gd"
 
 [debug]
 

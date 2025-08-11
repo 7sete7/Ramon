@@ -15,3 +15,6 @@ static func from(l: int, r: int, t: int, b: int) -> ConfigLimits:
 	limits.bottom = b
 	
 	return limits
+
+func _to_string() -> String:
+	return "l:{}, t:{}, r:{}, b:{}".format([left, top, right, bottom], "{}")

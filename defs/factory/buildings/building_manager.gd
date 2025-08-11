@@ -48,7 +48,9 @@ func toggle_building_mode_with(building: Building):
 	GameFactory.hud.building_mode.current_building = building
 	GameFactory.hud.buildings_list.update_displays_with(building)
 	
-func try_place_building_at(pos: Vector2i, building: Building):
+func try_place_building_at(pos: Vector2i, building_id: String):
+	var building: Building = GameFactory.building_manager.get_building(building_id)
+	if not building: return
 	if not building.can_place_at(pos):
 		push_warning("Cannot place building %s at %s" % [building.name, pos])
 		return

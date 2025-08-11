@@ -18,7 +18,6 @@ func _ready() -> void:
 	grid_sizes = GridSizes.from(config)
 	
 	self.init_tiles()
-	TickManager.start()
 
 	self.map_builder = MapBuilder.new(self)
 	self.map_builder.build_ores()
@@ -57,6 +56,7 @@ func set_building_at(tile: Tile, building: Building) -> void:
 	building_map_layer.set_cell(tile.tilemap_position, building.tileset_id, Vector2i(0, 0), building.tileset_tile_id)
 	tile.building = building
 	building.tilemap_position = tile.tilemap_position
+	print("Building set ", tile.tilemap_position, " - ", building.tilemap_position, " - ", tile.id)
 
 func get_position_under_mouse() -> Vector2i:
 	var local_mouse_pos := self.get_local_mouse_position()
